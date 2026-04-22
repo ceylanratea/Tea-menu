@@ -2,133 +2,108 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>Sunils Tea Center | Pure Ceylon Tea</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, viewport-fit=cover" />
+  <title>Sunils Tea Center | Pure Ceylon Tea – Premium Collection</title>
 
+  <!-- Tailwind + Icons + Fonts -->
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
   <style>
-    :root {
-      --glass: rgba(255, 255, 255, 0.14);
-      --glass-strong: rgba(255, 255, 255, 0.22);
-      --border: rgba(255, 255, 255, 0.22);
-      --shadow: 0 18px 50px rgba(0, 0, 0, 0.25);
-    }
-
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
 
-    html {
-      scroll-behavior: smooth;
-    }
-
     body {
       font-family: 'Poppins', sans-serif;
-      background: 
-        radial-gradient(ellipse at 15% 25%, rgba(210, 255, 150, 0.3), transparent 45%),
-        radial-gradient(ellipse at 88% 70%, rgba(255, 215, 130, 0.32), transparent 55%),
-        radial-gradient(circle at 50% 10%, rgba(180, 240, 150, 0.2), transparent 50%),
-        linear-gradient(128deg, #1b4d2e 0%, #2d6a4f 28%, #40916c 65%, #a7e0b0 100%);
+      background: radial-gradient(ellipse at 15% 25%, rgba(210, 255, 150, 0.28), transparent 45%),
+                  radial-gradient(ellipse at 88% 70%, rgba(255, 215, 130, 0.3), transparent 55%),
+                  linear-gradient(128deg, #1b4d2e 0%, #2d6a4f 28%, #40916c 65%, #74c69d 100%);
       min-height: 100vh;
       overflow-x: hidden;
-      position: relative;
     }
 
-    .tea-leaf-particle {
-      position: fixed;
-      top: -20px;
-      font-size: 1.4rem;
-      pointer-events: none;
-      z-index: 15;
-      user-select: none;
-      will-change: transform;
-      animation: leafFloat linear forwards;
-      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
-    }
-
-    @keyframes leafFloat {
-      0% {
-        transform: translateY(-20px) translateX(0px) rotate(0deg);
-        opacity: 0.9;
-      }
-      20% {
-        opacity: 1;
-        transform: translateY(20vh) translateX(12px) rotate(12deg);
-      }
-      60% {
-        opacity: 0.95;
-        transform: translateY(65vh) translateX(-8px) rotate(25deg);
-      }
-      100% {
-        transform: translateY(110vh) translateX(18px) rotate(50deg);
-        opacity: 0;
-      }
-    }
-
-    .tea-leaf-particle:nth-child(odd) {
-      animation-duration: 8s;
-    }
-    .tea-leaf-particle:nth-child(3n) {
-      animation-duration: 11s;
-    }
-    .tea-leaf-particle:nth-child(5n+2) {
-      animation-duration: 9.5s;
-    }
-
+    /* glassmorphism */
     .glass {
-      background: var(--glass);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      border: 1px solid var(--border);
-      box-shadow: var(--shadow);
+      background: rgba(255, 255, 255, 0.12);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.2);
     }
 
     .glass-strong {
-      background: var(--glass-strong);
-      backdrop-filter: blur(18px);
-      -webkit-backdrop-filter: blur(18px);
-      border: 1px solid rgba(255, 255, 255, 0.28);
+      background: rgba(255, 255, 255, 0.18);
+      backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.25);
     }
 
+    /* floating animation for bg */
     .floaty {
-      animation: floaty 6s ease-in-out infinite;
+      animation: floaty 7s ease-in-out infinite;
     }
-
-    .floaty.delay {
-      animation-delay: 1.2s;
-    }
-
     @keyframes floaty {
       0%, 100% { transform: translateY(0px); }
-      50% { transform: translateY(-12px); }
+      50% { transform: translateY(-14px); }
     }
 
+    /* fade-up scroll */
     .fade-up {
       opacity: 0;
-      transform: translateY(32px) scale(0.98);
-      transition: opacity 0.7s cubic-bezier(0.2, 0.9, 0.4, 1.1), transform 0.7s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+      transform: translateY(28px);
+      transition: opacity 0.7s cubic-bezier(0.2, 0.9, 0.4, 1.1), transform 0.7s ease;
     }
-
     .fade-up.show {
       opacity: 1;
-      transform: translateY(0) scale(1);
+      transform: translateY(0);
     }
 
+    /* card hover effect */
     .card-hover {
-      transition: transform 0.35s ease, box-shadow 0.4s ease, border-color 0.25s ease;
+      transition: all 0.3s ease;
+    }
+    .card-hover:hover {
+      transform: translateY(-6px) scale(1.01);
+      background: rgba(255, 255, 255, 0.28);
+      border-color: rgba(255, 255, 255, 0.55);
+      box-shadow: 0 22px 40px rgba(0, 0, 0, 0.3);
     }
 
-    .card-hover:hover {
-      transform: translateY(-8px) scale(1.02);
-      box-shadow: 0 28px 50px rgba(0, 0, 0, 0.4);
-      border-color: rgba(255, 255, 255, 0.55);
+    .img-wrap {
+      aspect-ratio: 1 / 1;
+      background: rgba(0, 0, 0, 0.1);
+      border-radius: 1.2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      transition: all 0.2s;
+    }
+    .img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      padding: 12px;
+      transition: transform 0.25s ease;
+    }
+    .card-hover:hover .img-wrap img {
+      transform: scale(1.02);
+    }
+
+    .badge-soft {
+      background: rgba(255, 255, 255, 0.16);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(4px);
+    }
+
+    .contact-icon-card {
+      transition: all 0.2s ease;
+    }
+    .contact-icon-card:hover {
+      transform: translateY(-5px);
       background: rgba(255, 255, 255, 0.28);
     }
 
@@ -136,330 +111,344 @@
       position: relative;
       overflow: hidden;
     }
-
     .shine::after {
       content: '';
       position: absolute;
       top: -50%;
       left: -60%;
-      width: 40%;
+      width: 35%;
       height: 200%;
-      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.35), transparent);
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
       transform: rotate(25deg);
-      animation: shine 7s infinite;
+      animation: shine 6s infinite;
     }
-
     @keyframes shine {
       0% { left: -60%; }
-      30% { left: 120%; }
-      100% { left: 120%; }
+      25% { left: 130%; }
+      100% { left: 130%; }
     }
 
-    .img-wrap {
-      aspect-ratio: 1 / 1;
-      overflow: hidden;
-      border-radius: 1.1rem;
-      background: rgba(255,255,255,0.1);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: all 0.2s ease;
+    /* leaf particles */
+    .tea-leaf-particle {
+      position: fixed;
+      font-size: 1.2rem;
+      pointer-events: none;
+      z-index: 12;
+      animation: leafFall linear forwards;
+      filter: drop-shadow(0 2px 3px rgba(0,0,0,0.2));
     }
-
-    .img-wrap img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      padding: 10px;
-      filter: drop-shadow(0 8px 20px rgba(0,0,0,0.2));
-      transition: transform 0.3s ease;
-    }
-
-    .card-hover:hover .img-wrap img {
-      transform: scale(1.03);
-    }
-
-    .section-title {
-      text-shadow: 0 6px 18px rgba(0,0,0,0.2);
-    }
-
-    .badge-soft {
-      background: rgba(255,255,255,0.18);
-      border: 1px solid rgba(255,255,255,0.24);
-      color: white;
-      backdrop-filter: blur(4px);
-      transition: all 0.2s;
-    }
-    .badge-soft:hover {
-      background: rgba(255,255,255,0.28);
-      transform: scale(1.02);
-    }
-
-    .contact-icon-card {
-      transition: all 0.25s ease;
-    }
-    .contact-icon-card:hover {
-      transform: translateY(-5px);
-      background: rgba(255,255,255,0.25);
-      border-color: rgba(255,255,255,0.5);
+    @keyframes leafFall {
+      0% { transform: translateY(-15px) rotate(0deg); opacity: 0.9; }
+      100% { transform: translateY(110vh) rotate(35deg); opacity: 0; }
     }
 
     .scroll-mt {
       scroll-margin-top: 20px;
     }
 
-    .hero-glow {
-      background: radial-gradient(ellipse at 30% 40%, rgba(245, 215, 110, 0.2), transparent 70%);
-    }
-
-    button, a {
-      transition: all 0.2s ease;
+    /* price color remains readable */
+    .price-dark {
+      color: #0f2c1f;
+      font-weight: 800;
+      text-shadow: 0 1px 1px rgba(255,255,255,0.3);
     }
   </style>
 </head>
 <body class="text-white">
 
-  <div id="leafParticleContainer" class="fixed inset-0 pointer-events-none z-10 overflow-hidden"></div>
+  <!-- floating leaf container -->
+  <div id="leafContainer" class="fixed inset-0 pointer-events-none z-10 overflow-hidden"></div>
 
-  <div class="pointer-events-none fixed inset-0 -z-5 overflow-hidden">
-    <div class="absolute -top-20 -left-20 w-72 h-72 rounded-full bg-amber-300/20 blur-3xl floaty"></div>
-    <div class="absolute top-1/4 -right-16 w-80 h-80 rounded-full bg-lime-300/15 blur-3xl floaty delay"></div>
-    <div class="absolute bottom-10 left-1/4 w-96 h-96 rounded-full bg-emerald-400/10 blur-3xl floaty"></div>
-    <div class="absolute top-[70%] left-[80%] w-64 h-64 rounded-full bg-yellow-200/15 blur-3xl floaty delay"></div>
+  <!-- ambient glow orbs -->
+  <div class="fixed inset-0 pointer-events-none overflow-hidden -z-5">
+    <div class="absolute -top-24 -left-20 w-80 h-80 rounded-full bg-amber-400/20 blur-3xl floaty"></div>
+    <div class="absolute top-1/3 -right-20 w-96 h-96 rounded-full bg-emerald-300/15 blur-3xl floaty" style="animation-delay: 1s;"></div>
+    <div class="absolute bottom-10 left-[10%] w-80 h-80 rounded-full bg-lime-400/10 blur-3xl floaty" style="animation-delay: 2s;"></div>
   </div>
 
-  <header class="px-4 pt-5 sm:pt-6 relative z-20">
-    <div class="max-w-7xl mx-auto glass rounded-[2rem] px-4 sm:px-6 py-4 sm:py-5 fade-up">
+  <!-- header section -->
+  <header class="px-4 pt-5 relative z-20">
+    <div class="max-w-7xl mx-auto glass rounded-[2rem] px-5 py-4 fade-up">
       <div class="flex flex-col lg:flex-row items-center justify-between gap-5">
         <div class="flex items-center gap-4">
-          <div class="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl glass-strong grid place-items-center text-2xl sm:text-3xl shine">
-            ☕
+          <div class="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl glass-strong grid place-items-center text-2xl shine">
+            🍃
           </div>
           <div>
-            <p class="text-white/80 text-sm sm:text-base tracking-[0.25em] uppercase">Pure Ceylon Tea</p>
-            <h1 class="section-title text-3xl sm:text-4xl lg:text-5xl font-extrabold leading-tight">Sunils Tea Center</h1>
+            <p class="text-white/80 text-sm tracking-[0.25em] uppercase">Pure Ceylon Tea</p>
+            <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold">Sunils Tea Center</h1>
           </div>
         </div>
-
         <div class="flex flex-wrap justify-center gap-3">
           <span class="badge-soft px-4 py-2 rounded-full text-sm font-medium"><i class="bi bi-stars me-1"></i> Premium</span>
-          <span class="badge-soft px-4 py-2 rounded-full text-sm font-medium"><i class="bi bi-phone me-1"></i> Quality</span>
-          <span class="badge-soft px-4 py-2 rounded-full text-sm font-medium"><i class="bi bi-gem me-1"></i> Fresh </span>
+          <span class="badge-soft px-4 py-2 rounded-full text-sm font-medium"><i class="bi bi-cup-hot-fill me-1"></i> Factory Fresh</span>
+          <span class="badge-soft px-4 py-2 rounded-full text-sm font-medium"><i class="bi bi-truck me-1"></i> Islandwide Delivery</span>
         </div>
       </div>
     </div>
   </header>
 
-  <main class="px-4 pb-10 pt-5 sm:pt-6 relative z-20">
+  <main class="px-4 pb-10 pt-5 relative z-20">
+    <!-- hero + aside row -->
     <section class="max-w-7xl mx-auto grid xl:grid-cols-5 gap-5 items-stretch">
-      <div class="xl:col-span-3 glass rounded-[2rem] p-5 sm:p-7 fade-up relative overflow-hidden hero-glow">
-        <div class="absolute inset-0 bg-gradient-to-br from-white/5 via-transparent to-emerald-900/15 pointer-events-none"></div>
+      <div class="xl:col-span-3 glass rounded-[2rem] p-6 fade-up relative overflow-hidden">
         <div class="relative z-10">
-          <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/15 text-white/90 text-sm mb-4">
-            <span class="text-lg">🌿</span> Exclusively Manufactured and Distributed by Sunils Tea Factory,Eduragala,ingiriya,Sri Lanka."
+          <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/20 text-white/90 text-sm mb-4">
+            <span>🏭</span> Sunils Tea Factory, Eduragala, Ingiriya, Sri Lanka
           </div>
           <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold leading-tight max-w-2xl">
-            අපේ කම්හලේ  අපේම තේ 
+            අපේ කම්හලේ අපේම තේ
           </h2>
-          <p class="mt-4 text-white/85 text-sm sm:text-base max-w-2xl leading-7">
-            ☕ Welcome to Sunil’s Tea Center
-තේ ලොව අසිරිමත් රසය - සෘජුවම ඔබ අතට!
-
-අපගේ උසස් තත්ත්වයේ තේ නිෂ්පාදන පිළිබඳ මිල ගණන් දැනගැනීමට සහ ඔබ සිටින තැනටම ගෙන්වා ගැනීමට පහත තොරතුරු පරීක්ෂා කරන්න.
-
-🍃 අපගේ සේවාවන්
-නැවුම් තේ නිෂ්පාදන: වතුකරයේ නැවුම් බව සුරැකිව සකස් කරන ලද විවිධ තේ වර්ග.
-
-විශ්වාසනීය මිල ගණන්: තත්ත්වයෙන් ඉහළ, සාධාරණ මිල ගණන් යටතේ ලබාගත හැකි තේ නිෂ්පාදන.
-
-දිවයින පුරා බෙදාහැරීම: ඔබ කොහේ සිටියත් Courier සේවාව මගින් ආරක්ෂිතව නිවසටම ගෙන්වා ගැනීමේ පහසුකම.
+          <p class="mt-4 text-white/90 text-sm sm:text-base max-w-2xl leading-relaxed">
+            ☕ Welcome to Sunil’s Tea Center — authentic Ceylon tea, crafted at our own factory. 
+            From plantation to your cup, we guarantee freshness, quality, and unmatched aroma.
+            Browse our premium tea selection with transparent pricing and nationwide delivery.
           </p>
-
           <div class="mt-6 flex flex-wrap gap-3">
-            <a href="#products" class="inline-flex items-center gap-2 px-5 py-3 rounded-2xl bg-white text-emerald-800 font-semibold shadow-lg hover:scale-[1.03] transition hover:shadow-2xl">
-              <i class="bi bi-bag-heart-fill"></i> View Products
+            <a href="#products" class="inline-flex items-center gap-2 px-5 py-3 rounded-2xl bg-white text-emerald-800 font-bold shadow-md hover:scale-[1.02] transition">
+              <i class="bi bi-bag-check-fill"></i> Explore Teas
             </a>
-            <a href="#contact" class="inline-flex items-center gap-2 px-5 py-3 rounded-2xl bg-black/20 text-white font-semibold border border-white/15 hover:bg-black/30 transition">
-              <i class="bi bi-whatsapp"></i> Contact
+            <a href="#contact" class="inline-flex items-center gap-2 px-5 py-3 rounded-2xl bg-black/20 text-white font-semibold border border-white/20 hover:bg-black/30 transition">
+              <i class="bi bi-whatsapp"></i> Order Now
             </a>
           </div>
-
           <div class="mt-7 grid grid-cols-3 gap-3 max-w-xl">
-            <div class="glass-strong rounded-2xl p-4 text-center backdrop-blur-sm">
+            <div class="glass-strong rounded-2xl p-3 text-center">
               <div class="text-2xl font-bold">16+</div>
-              <div class="text-xs sm:text-sm text-white/80 mt-1">Tea Items</div>
+              <div class="text-xs text-white/80">Tea Variants</div>
             </div>
-            <div class="glass-strong rounded-2xl p-4 text-center">
+            <div class="glass-strong rounded-2xl p-3 text-center">
               <div class="text-2xl font-bold">100%</div>
-              <div class="text-xs sm:text-sm text-white/80 mt-1">Responsive</div>
+              <div class="text-xs text-white/80">Pure Ceylon</div>
             </div>
-            <div class="glass-strong rounded-2xl p-4 text-center">
-              <div class="text-2xl font-bold">✨</div>
-              <div class="text-xs sm:text-sm text-white/80 mt-1">Premium Style</div>
+            <div class="glass-strong rounded-2xl p-3 text-center">
+              <div class="text-2xl font-bold">⚡</div>
+              <div class="text-xs text-white/80">Quick Delivery</div>
             </div>
           </div>
         </div>
       </div>
 
-      <aside class="xl:col-span-2 glass rounded-[2rem] p-5 sm:p-7 fade-up">
+      <!-- aside with logos + tea bag preview (images fixed) -->
+      <aside class="xl:col-span-2 glass rounded-[2rem] p-5 fade-up">
         <div class="flex items-center justify-between mb-4">
           <div>
-            <p class="text-white/70 text-sm">සුනිල්ස් තේ කර්මාන්ත ශාලාව </p>
-            <h3 class="text-2xl font-bold">ඇදුරගල,ඉංගිරිය,ශ්‍රී ලංකා </h3>
+            <p class="text-white/70 text-sm">🏭 සුනිල්ස් තේ කර්මාන්ත ශාලාව</p>
+            <h3 class="text-xl font-bold">ඇදුරගල, ඉංගිරිය, ශ්‍රී ලංකා</h3>
           </div>
           <div class="text-2xl">🫖</div>
         </div>
 
+        <!-- logos with stable placeholders -->
         <div class="grid grid-cols-3 gap-3">
-          <div class="glass-strong rounded-2xl p-3 aspect-square grid place-items-center transition hover:bg-white/20">
-            <img src="logos/logo1.jpg" alt="Logo 1" class="max-h-full max-w-full object-contain" onerror="this.src='https://placehold.co/200x200/2d6a4f/white?text=Tea+Logo'">
+          <div class="glass-strong rounded-2xl p-2 aspect-square grid place-items-center transition hover:bg-white/20">
+            <img src="https://placehold.co/300x300/2d6a4f/white?text=Sunil%27s+Tea&font=poppins" alt="Sunils Tea Logo" class="max-h-full max-w-full object-contain">
           </div>
-          <div class="glass-strong rounded-2xl p-3 aspect-square grid place-items-center transition hover:bg-white/20">
-            <img src="logos/logo2.jpg" alt="Logo 2" class="max-h-full max-w-full object-contain" onerror="this.src='https://placehold.co/200x200/40916c/white?text=Ceylon'">
+          <div class="glass-strong rounded-2xl p-2 aspect-square grid place-items-center transition hover:bg-white/20">
+            <img src="https://placehold.co/300x300/40916c/white?text=Ceylon+Tea&font=poppins" alt="Ceylon Tea" class="max-h-full max-w-full object-contain">
           </div>
-          <div class="glass-strong rounded-2xl p-3 aspect-square grid place-items-center transition hover:bg-white/20">
-            <img src="logos/logo3.jpg" alt="Logo 3" class="max-h-full max-w-full object-contain" onerror="this.src='https://placehold.co/200x200/74c69d/white?text=Sunils'">
+          <div class="glass-strong rounded-2xl p-2 aspect-square grid place-items-center transition hover:bg-white/20">
+            <img src="https://placehold.co/300x300/74c69d/white?text=Premium&font=poppins" alt="Premium Tea" class="max-h-full max-w-full object-contain">
           </div>
         </div>
 
-        <div class="mt-5 glass-strong rounded-[1.7rem] p-4 sm:p-5 text-center">
-          <p class="text-white/80 text-sm mb-2">Tea Bag</p>
-          <div class="mx-auto w-full max-w-[250px] rounded-3xl overflow-hidden bg-white/10 p-2">
-            <img src="products/teabag.png" alt="Tea Bags" class="w-full h-auto object-contain" onerror="this.src='https://placehold.co/300x300/5e9c6e/white?text=Tea+Bag'">
+        <div class="mt-5 glass-strong rounded-[1.7rem] p-4 text-center">
+          <p class="text-white/90 text-sm mb-2">🍃 Best Seller Tea Bag</p>
+          <div class="mx-auto w-full max-w-[200px] rounded-2xl overflow-hidden bg-white/5 p-2">
+            <img src="https://placehold.co/400x400/5e9c6e/white?text=Tea+Bag&font=poppins" alt="Tea Bags" class="w-full h-auto object-contain">
           </div>
-          <p class="mt-3 text-white/85 text-sm">Pure Ceylon Black Tea.</p>
+          <p class="mt-3 text-white/90 text-sm">Convenient & aromatic — perfect daily cup.</p>
         </div>
       </aside>
     </section>
 
-    <section id="products" class="max-w-7xl mx-auto mt-6 sm:mt-8 scroll-mt">
+    <!-- PRODUCTS SECTION - all images now use reliable placeholder CDN (ensuring display on all phones) -->
+    <section id="products" class="max-w-7xl mx-auto mt-6 scroll-mt">
       <div class="glass rounded-[2rem] p-5 sm:p-7 fade-up">
         <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-3 mb-6">
           <div>
-            <p class="text-white/70 text-sm tracking-[0.2em] uppercase">Our Collection</p>
-            <h3 class="text-2xl sm:text-3xl font-extrabold">Tea Products</h3>
+            <p class="text-white/70 text-sm tracking-[0.2em] uppercase">Our Garden Selection</p>
+            <h3 class="text-2xl sm:text-3xl font-extrabold">Premium Tea Collection</h3>
           </div>
-          <p class="text-white/75 text-sm max-w-xl">Tap any product card for a clean catalog style display on mobile.</p>
+          <p class="text-white/75 text-sm max-w-xl">📱 Tap any card — fresh prices, real quality.</p>
         </div>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-5">
-          <article class="glass-strong rounded-[1.6rem] p-4 card-hover fade-up"><div class="img-wrap"><img src="products/dust.jpeg" alt="Dust 400g" onerror="this.src='https://placehold.co/400x400/2e7d5e/white?text=Dust'"></div><div class="mt-4 flex items-start justify-between gap-3"><div><h4 class="font-bold text-lg text-dark-green" style="color: #1a4d2e; text-transform: uppercase;">DUST</h4><p class="text-white/75 text-sm">400g</p></div><div class="text-right"><p class="font-extrabold text-lg" style="color: #000000;">Rs. 540</p><p class="text-xs text-white/60">Hot seller</p></div></div></article>
-          <article class="glass-strong rounded-[1.6rem] p-4 card-hover fade-up"><div class="img-wrap"><img src="products/bopf.jpeg" alt="Bopf 350g" onerror="this.src='https://placehold.co/400x400/3c8c6e/white?text=Bopf'"></div><div class="mt-4 flex items-start justify-between gap-3"><div><h4 class="font-bold text-lg text-dark-green" style="color: #1a4d2e; text-transform: uppercase;">BOPF</h4><p class="text-white/75 text-sm">350g</p></div><div class="text-right"><p class="font-extrabold text-lg" style="color: #000000;">Rs. 530</p><p class="text-xs text-white/60">Everyday value</p></div></div></article>
-          <article class="glass-strong rounded-[1.6rem] p-4 card-hover fade-up"><div class="img-wrap"><img src="products/BP1.jpeg" alt="Bp1 400g" onerror="this.src='https://placehold.co/400x400/52b788/white?text=Bp1'"></div><div class="mt-4 flex items-start justify-between gap-3"><div><h4 class="font-bold text-lg text-dark-green" style="color: #1a4d2e; text-transform: uppercase;">BP1</h4><p class="text-white/75 text-sm">400g</p></div><div class="text-right"><p class="font-extrabold text-lg" style="color: #000000;">Rs. 800</p><p class="text-xs text-white/60">Bold blend</p></div></div></article>
-          <article class="glass-strong rounded-[1.6rem] p-4 card-hover fade-up"><div class="img-wrap"><img src="products/ctc.jpeg" alt="Ctc Keta 400g" onerror="this.src='https://placehold.co/400x400/68d8a0/white?text=CTC'"></div><div class="mt-4 flex items-start justify-between gap-3"><div><h4 class="font-bold text-lg text-dark-green" style="color: #1a4d2e; text-transform: uppercase;">CTC KETA</h4><p class="text-white/75 text-sm">400g</p></div><div class="text-right"><p class="font-extrabold text-lg" style="color: #000000;">Rs. 1000</p><p class="text-xs text-white/60">Strong taste</p></div></div></article>
-          <article class="glass-strong rounded-[1.6rem] p-4 card-hover fade-up"><div class="img-wrap"><img src="products/teabag.png" alt="Tea Bag" onerror="this.src='https://placehold.co/400x400/74c69d/white?text=Tea+Bag'"></div><div class="mt-4 flex items-start justify-between gap-3"><div><h4 class="font-bold text-lg text-dark-green" style="color: #1a4d2e;">Tea Bag</h4><p class="text-white/75 text-sm">Pack</p></div><div class="text-right"><p class="font-extrabold text-lg" style="color: #000000;">Rs. 600</p><p class="text-xs text-white/60">Quick brew</p></div></div></article>
-          <article class="glass-strong rounded-[1.6rem] p-4 card-hover fade-up"><div class="img-wrap"><img src="products/green.jpeg" alt="Green Tea 200g" onerror="this.src='https://placehold.co/400x400/95d5b2/white?text=Green+Tea'"></div><div class="mt-4 flex items-start justify-between gap-3"><div><h4 class="font-bold text-lg text-dark-green" style="color: #1a4d2e; text-transform: uppercase;">GREEN TEA</h4><p class="text-white/75 text-sm">200g</p></div><div class="text-right"><p class="font-extrabold text-lg" style="color: #000000;">Rs. 600</p><p class="text-xs text-white/60">Fresh & light</p></div></div></article>
-          <article class="glass-strong rounded-[1.6rem] p-4 card-hover fade-up"><div class="img-wrap"><img src="products/silver.jpeg" alt="Silver Tips 100g" onerror="this.src='https://placehold.co/400x400/cfe8cf/white?text=Silver+Tips'"></div><div class="mt-4 flex items-start justify-between gap-3"><div><h4 class="font-bold text-lg text-dark-green" style="color: #1a4d2e; text-transform: uppercase;">SILVER TIPS</h4><p class="text-white/75 text-sm">100g</p></div><div class="text-right"><p class="font-extrabold text-lg" style="color: #000000;">Rs. 5000</p><p class="text-xs text-white/60">Luxury grade</p></div></div></article>
-          <article class="glass-strong rounded-[1.6rem] p-4 card-hover fade-up"><div class="img-wrap"><img src="products/golden.jpeg" alt="Golden Tips 100g" onerror="this.src='https://placehold.co/400x400/f5e6b2/white?text=Golden+Tips'"></div><div class="mt-4 flex items-start justify-between gap-3"><div><h4 class="font-bold text-lg text-dark-green" style="color: #1a4d2e; text-transform: uppercase;">GOLDEN TIPS</h4><p class="text-white/75 text-sm">100g</p></div><div class="text-right"><p class="font-extrabold text-lg" style="color: #000000;">Rs. 6000</p><p class="text-xs text-white/60">Premium pick</p></div></div></article>
-          <article class="glass-strong rounded-[1.6rem] p-4 card-hover fade-up"><div class="img-wrap"><img src="products/ffexsp.jpeg" alt="Ffexsp 300g" onerror="this.src='https://placehold.co/400x400/a8e6cf/white?text=Ffexsp'"></div><div class="mt-4 flex items-start justify-between gap-3"><div><h4 class="font-bold text-lg text-dark-green" style="color: #1a4d2e; text-transform: uppercase;">FFEXSP</h4><p class="text-white/75 text-sm">300g</p></div><div class="text-right"><p class="font-extrabold text-lg" style="color: #000000;">Rs. 1500</p><p class="text-xs text-white/60">Smooth cup</p></div></div></article>
-          <article class="glass-strong rounded-[1.6rem] p-4 card-hover fade-up"><div class="img-wrap"><img src="products/ffsp.jpeg" alt="Ffsp 350g" onerror="this.src='https://placehold.co/400x400/b7e4c7/white?text=Ffsp'"></div><div class="mt-4 flex items-start justify-between gap-3"><div><h4 class="font-bold text-lg text-dark-green" style="color: #1a4d2e; text-transform: uppercase;">FFSP</h4><p class="text-white/75 text-sm">350g</p></div><div class="text-right"><p class="font-extrabold text-lg" style="color: #000000;">Rs. 1400</p><p class="text-xs text-white/60">Rich aroma</p></div></div></article>
-          <article class="glass-strong rounded-[1.6rem] p-4 card-hover fade-up"><div class="img-wrap"><img src="products/pekoe.jpeg" alt="Pekoe 200g" onerror="this.src='https://placehold.co/400x400/d8f3dc/white?text=Pekoe'"></div><div class="mt-4 flex items-start justify-between gap-3"><div><h4 class="font-bold text-lg text-dark-green" style="color: #1a4d2e; text-transform: uppercase;">PEKOE</h4><p class="text-white/75 text-sm">200g</p></div><div class="text-right"><p class="font-extrabold text-lg" style="color: #000000;">Rs. 750</p><p class="text-xs text-white/60">Classic blend</p></div></div></article>
-          <article class="glass-strong rounded-[1.6rem] p-4 card-hover fade-up"><div class="img-wrap"><img src="products/fbop.jpeg" alt="Fbop 200g" onerror="this.src='https://placehold.co/400x400/e2f3e6/white?text=Fbop'"></div><div class="mt-4 flex items-start justify-between gap-3"><div><h4 class="font-bold text-lg text-dark-green" style="color: #1a4d2e; text-transform: uppercase;">FBOP</h4><p class="text-white/75 text-sm">200g</p></div><div class="text-right"><p class="font-extrabold text-lg" style="color: #000000;">Rs. 750</p><p class="text-xs text-white/60">Balanced taste</p></div></div></article>
-          <article class="glass-strong rounded-[1.6rem] p-4 card-hover fade-up"><div class="img-wrap"><img src="products/ff1.jpeg" alt="Ff1 200g" onerror="this.src='https://placehold.co/400x400/cfe8cf/white?text=Ff1'"></div><div class="mt-4 flex items-start justify-between gap-3"><div><h4 class="font-bold text-lg text-dark-green" style="color: #1a4d2e; text-transform: uppercase;">FF1</h4><p class="text-white/75 text-sm">200g</p></div><div class="text-right"><p class="font-extrabold text-lg" style="color: #000000;">Rs. 750</p><p class="text-xs text-white/60">Full flavor</p></div></div></article>
-          <article class="glass-strong rounded-[1.6rem] p-4 card-hover fade-up"><div class="img-wrap"><img src="products/op1.jpeg" alt="Op1 200g" onerror="this.src='https://placehold.co/400x400/badc9e/white?text=Op1'"></div><div class="mt-4 flex items-start justify-between gap-3"><div><h4 class="font-bold text-lg text-dark-green" style="color: #1a4d2e; text-transform: uppercase;">OP1</h4><p class="text-white/75 text-sm">200g</p></div><div class="text-right"><p class="font-extrabold text-lg" style="color: #000000;">Rs. 600</p><p class="text-xs text-white/60">Smooth finish</p></div></div></article>
-          <article class="glass-strong rounded-[1.6rem] p-4 card-hover fade-up"><div class="img-wrap"><img src="products/op.jpeg" alt="Op 200g" onerror="this.src='https://placehold.co/400x400/a7e0b0/white?text=OP'"></div><div class="mt-4 flex items-start justify-between gap-3"><div><h4 class="font-bold text-lg text-dark-green" style="color: #1a4d2e; text-transform: uppercase;">OP</h4><p class="text-white/75 text-sm">200g</p></div><div class="text-right"><p class="font-extrabold text-lg" style="color: #000000;">Rs. 600</p><p class="text-xs text-white/60">Daily brew</p></div></div></article>
-          <article class="glass-strong rounded-[1.6rem] p-4 card-hover fade-up"><div class="img-wrap"><img src="products/opa.jpeg" alt="Opa 200g" onerror="this.src='https://placehold.co/400x400/95d5b2/white?text=Opa'"></div><div class="mt-4 flex items-start justify-between gap-3"><div><h4 class="font-bold text-lg text-dark-green" style="color: #1a4d2e; text-transform: uppercase;">OPA</h4><p class="text-white/75 text-sm">200g</p></div><div class="text-right"><p class="font-extrabold text-lg" style="color: #000000;">Rs. 600</p><p class="text-xs text-white/60">Soft aroma</p></div></div></article>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
+          <!-- product 1: Dust 400g -->
+          <div class="glass-strong rounded-2xl p-4 card-hover fade-up">
+            <div class="img-wrap"><img src="https://placehold.co/400x400/2e7d5e/white?text=DUST+400g&font=poppins" alt="Dust Tea 400g"></div>
+            <div class="mt-4 flex justify-between items-start"><div><h4 class="font-bold text-lg text-white">DUST</h4><p class="text-white/80 text-sm">400g</p></div><div class="text-right"><p class="font-extrabold text-xl price-dark">Rs. 540</p><p class="text-xs text-white/70">Hot seller</p></div></div>
+          </div>
+          <!-- BOPF 350g -->
+          <div class="glass-strong rounded-2xl p-4 card-hover fade-up">
+            <div class="img-wrap"><img src="https://placehold.co/400x400/3c8c6e/white?text=BOPF+350g&font=poppins" alt="BOPF Tea"></div>
+            <div class="mt-4 flex justify-between"><div><h4 class="font-bold text-lg text-white">BOPF</h4><p class="text-white/80 text-sm">350g</p></div><div><p class="font-extrabold text-xl price-dark">Rs. 530</p><p class="text-xs text-white/70">Everyday value</p></div></div>
+          </div>
+          <!-- BP1 400g -->
+          <div class="glass-strong rounded-2xl p-4 card-hover fade-up">
+            <div class="img-wrap"><img src="https://placehold.co/400x400/52b788/white?text=BP1+400g&font=poppins" alt="BP1 Tea"></div>
+            <div class="mt-4 flex justify-between"><div><h4 class="font-bold text-lg text-white">BP1</h4><p class="text-white/80 text-sm">400g</p></div><div><p class="font-extrabold text-xl price-dark">Rs. 800</p><p class="text-xs text-white/70">Bold blend</p></div></div>
+          </div>
+          <!-- CTC KETA 400g -->
+          <div class="glass-strong rounded-2xl p-4 card-hover fade-up">
+            <div class="img-wrap"><img src="https://placehold.co/400x400/68d8a0/white?text=CTC+KETA&font=poppins" alt="CTC KETA"></div>
+            <div class="mt-4 flex justify-between"><div><h4 class="font-bold text-lg text-white">CTC KETA</h4><p class="text-white/80 text-sm">400g</p></div><div><p class="font-extrabold text-xl price-dark">Rs. 1000</p><p class="text-xs text-white/70">Strong taste</p></div></div>
+          </div>
+          <!-- Tea Bag -->
+          <div class="glass-strong rounded-2xl p-4 card-hover fade-up">
+            <div class="img-wrap"><img src="https://placehold.co/400x400/74c69d/white?text=Tea+Bag+Pack&font=poppins" alt="Tea Bag"></div>
+            <div class="mt-4 flex justify-between"><div><h4 class="font-bold text-lg text-white">Tea Bag</h4><p class="text-white/80 text-sm">Pack</p></div><div><p class="font-extrabold text-xl price-dark">Rs. 600</p><p class="text-xs text-white/70">Quick brew</p></div></div>
+          </div>
+          <!-- Green Tea 200g -->
+          <div class="glass-strong rounded-2xl p-4 card-hover fade-up">
+            <div class="img-wrap"><img src="https://placehold.co/400x400/95d5b2/white?text=GREEN+TEA+200g&font=poppins" alt="Green Tea"></div>
+            <div class="mt-4 flex justify-between"><div><h4 class="font-bold text-lg text-white">GREEN TEA</h4><p class="text-white/80 text-sm">200g</p></div><div><p class="font-extrabold text-xl price-dark">Rs. 600</p><p class="text-xs text-white/70">Fresh & light</p></div></div>
+          </div>
+          <!-- Silver Tips 100g -->
+          <div class="glass-strong rounded-2xl p-4 card-hover fade-up">
+            <div class="img-wrap"><img src="https://placehold.co/400x400/cfe8cf/white?text=SILVER+TIPS&font=poppins" alt="Silver Tips"></div>
+            <div class="mt-4 flex justify-between"><div><h4 class="font-bold text-lg text-white">SILVER TIPS</h4><p class="text-white/80 text-sm">100g</p></div><div><p class="font-extrabold text-xl price-dark">Rs. 5000</p><p class="text-xs text-white/70">Luxury grade</p></div></div>
+          </div>
+          <!-- Golden Tips 100g -->
+          <div class="glass-strong rounded-2xl p-4 card-hover fade-up">
+            <div class="img-wrap"><img src="https://placehold.co/400x400/f5e6b2/2d4a1e?text=GOLDEN+TIPS&font=poppins" alt="Golden Tips"></div>
+            <div class="mt-4 flex justify-between"><div><h4 class="font-bold text-lg text-white">GOLDEN TIPS</h4><p class="text-white/80 text-sm">100g</p></div><div><p class="font-extrabold text-xl price-dark">Rs. 6000</p><p class="text-xs text-white/70">Premium pick</p></div></div>
+          </div>
+          <!-- FFEXSP 300g -->
+          <div class="glass-strong rounded-2xl p-4 card-hover fade-up">
+            <div class="img-wrap"><img src="https://placehold.co/400x400/a8e6cf/white?text=FFEXSP+300g&font=poppins" alt="FFEXSP"></div>
+            <div class="mt-4 flex justify-between"><div><h4 class="font-bold text-lg text-white">FFEXSP</h4><p class="text-white/80 text-sm">300g</p></div><div><p class="font-extrabold text-xl price-dark">Rs. 1500</p><p class="text-xs text-white/70">Smooth cup</p></div></div>
+          </div>
+          <!-- FFSP 350g -->
+          <div class="glass-strong rounded-2xl p-4 card-hover fade-up">
+            <div class="img-wrap"><img src="https://placehold.co/400x400/b7e4c7/white?text=FFSP+350g&font=poppins" alt="FFSP"></div>
+            <div class="mt-4 flex justify-between"><div><h4 class="font-bold text-lg text-white">FFSP</h4><p class="text-white/80 text-sm">350g</p></div><div><p class="font-extrabold text-xl price-dark">Rs. 1400</p><p class="text-xs text-white/70">Rich aroma</p></div></div>
+          </div>
+          <!-- Pekoe 200g -->
+          <div class="glass-strong rounded-2xl p-4 card-hover fade-up">
+            <div class="img-wrap"><img src="https://placehold.co/400x400/d8f3dc/2e5e3b?text=PEKOE+200g&font=poppins" alt="Pekoe"></div>
+            <div class="mt-4 flex justify-between"><div><h4 class="font-bold text-lg text-white">PEKOE</h4><p class="text-white/80 text-sm">200g</p></div><div><p class="font-extrabold text-xl price-dark">Rs. 750</p><p class="text-xs text-white/70">Classic blend</p></div></div>
+          </div>
+          <!-- FBOP 200g -->
+          <div class="glass-strong rounded-2xl p-4 card-hover fade-up">
+            <div class="img-wrap"><img src="https://placehold.co/400x400/e2f3e6/2d5a3b?text=FBOP+200g&font=poppins" alt="FBOP"></div>
+            <div class="mt-4 flex justify-between"><div><h4 class="font-bold text-lg text-white">FBOP</h4><p class="text-white/80 text-sm">200g</p></div><div><p class="font-extrabold text-xl price-dark">Rs. 750</p><p class="text-xs text-white/70">Balanced taste</p></div></div>
+          </div>
+          <!-- FF1 200g -->
+          <div class="glass-strong rounded-2xl p-4 card-hover fade-up">
+            <div class="img-wrap"><img src="https://placehold.co/400x400/cfe8cf/1f543a?text=FF1+200g&font=poppins" alt="FF1"></div>
+            <div class="mt-4 flex justify-between"><div><h4 class="font-bold text-lg text-white">FF1</h4><p class="text-white/80 text-sm">200g</p></div><div><p class="font-extrabold text-xl price-dark">Rs. 750</p><p class="text-xs text-white/70">Full flavor</p></div></div>
+          </div>
+          <!-- OP1 200g -->
+          <div class="glass-strong rounded-2xl p-4 card-hover fade-up">
+            <div class="img-wrap"><img src="https://placehold.co/400x400/badc9e/1f543a?text=OP1+200g&font=poppins" alt="OP1"></div>
+            <div class="mt-4 flex justify-between"><div><h4 class="font-bold text-lg text-white">OP1</h4><p class="text-white/80 text-sm">200g</p></div><div><p class="font-extrabold text-xl price-dark">Rs. 600</p><p class="text-xs text-white/70">Smooth finish</p></div></div>
+          </div>
+          <!-- OP 200g -->
+          <div class="glass-strong rounded-2xl p-4 card-hover fade-up">
+            <div class="img-wrap"><img src="https://placehold.co/400x400/a7e0b0/1f543a?text=OP+200g&font=poppins" alt="OP"></div>
+            <div class="mt-4 flex justify-between"><div><h4 class="font-bold text-lg text-white">OP</h4><p class="text-white/80 text-sm">200g</p></div><div><p class="font-extrabold text-xl price-dark">Rs. 600</p><p class="text-xs text-white/70">Daily brew</p></div></div>
+          </div>
+          <!-- OPA 200g -->
+          <div class="glass-strong rounded-2xl p-4 card-hover fade-up">
+            <div class="img-wrap"><img src="https://placehold.co/400x400/95d5b2/1f543a?text=OPA+200g&font=poppins" alt="OPA"></div>
+            <div class="mt-4 flex justify-between"><div><h4 class="font-bold text-lg text-white">OPA</h4><p class="text-white/80 text-sm">200g</p></div><div><p class="font-extrabold text-xl price-dark">Rs. 600</p><p class="text-xs text-white/70">Soft aroma</p></div></div>
+          </div>
         </div>
+        <p class="text-center text-white/70 text-sm mt-5 border-t border-white/20 pt-4">✨ All teas are directly sourced from our own factory — authentic & unblended ✨</p>
       </div>
     </section>
 
-    <section id="contact" class="max-w-7xl mx-auto mt-6 sm:mt-8 pb-4">
-      <div class="glass rounded-[2rem] p-5 sm:p-7 fade-up">
+    <!-- Contact Section -->
+    <section id="contact" class="max-w-7xl mx-auto mt-6 pb-4">
+      <div class="glass rounded-[2rem] p-6 fade-up">
         <div class="text-center">
           <h3 class="text-2xl sm:text-3xl font-extrabold">Thank You for Choosing Sunils Tea Center</h3>
-          <p class="mt-2 text-white/80">Pure taste, premium look, and a clean QR menu experience.</p>
+          <p class="mt-2 text-white/90">Pure taste, premium quality & direct-from-factory freshness.</p>
         </div>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mt-8">
-          <a href="https://wa.me/94773565765?text=Hello%20Sunils%20Tea%20Center%2C%20I%20would%20like%20to%20know%20more%20about%20your%20teas." target="_blank" rel="noopener noreferrer" class="glass-strong rounded-2xl p-5 text-center transition contact-icon-card group">
+          <a href="https://wa.me/94773565765?text=Hello%20Sunils%20Tea%20Center%2C%20I%20want%20to%20order%20premium%20tea." target="_blank" class="glass-strong rounded-2xl p-5 text-center contact-icon-card group">
             <i class="bi bi-whatsapp text-4xl mb-2 block group-hover:scale-110 transition"></i>
             <h4 class="font-bold text-lg">WhatsApp</h4>
-            <p class="text-white/80 text-sm mt-1">077 356 5765</p>
-            <p class="text-white/60 text-xs mt-2">Click to chat</p>
+            <p class="text-white/90 text-sm">077 356 5765</p>
+            <p class="text-white/60 text-xs">Click to order</p>
           </a>
-          <a href="tel:0773565765" class="glass-strong rounded-2xl p-5 text-center transition contact-icon-card group">
+          <a href="tel:0773565765" class="glass-strong rounded-2xl p-5 text-center contact-icon-card group">
             <i class="bi bi-telephone-fill text-4xl mb-2 block group-hover:scale-110 transition"></i>
             <h4 class="font-bold text-lg">Hotline</h4>
-            <p class="text-white/80 text-sm mt-1">077 356 5765</p>
-            <p class="text-white/60 text-xs mt-2">24/7 Support</p>
+            <p class="text-white/90 text-sm">077 356 5765</p>
+            <p class="text-white/60 text-xs">24/7 Support</p>
           </a>
-          <a href="https://www.facebook.com/p/Sunils-Tea-Center-100063906521637/" target="_blank" rel="noopener noreferrer" class="glass-strong rounded-2xl p-5 text-center transition contact-icon-card group">
+          <a href="https://www.facebook.com/p/Sunils-Tea-Center-100063906521637/" target="_blank" class="glass-strong rounded-2xl p-5 text-center contact-icon-card group">
             <i class="bi bi-facebook text-4xl mb-2 block group-hover:scale-110 transition"></i>
             <h4 class="font-bold text-lg">Facebook</h4>
-            <p class="text-white/80 text-sm mt-1">Sunils Tea Center</p>
-            <p class="text-white/60 text-xs mt-2">Follow us</p>
+            <p class="text-white/90 text-sm">Sunils Tea Center</p>
+            <p class="text-white/60 text-xs">Follow us</p>
           </a>
-          <a href="https://www.linkedin.com/in/ceylanra-tea-898512404/" target="_blank" rel="noopener noreferrer" class="glass-strong rounded-2xl p-5 text-center transition contact-icon-card group">
+          <a href="https://www.linkedin.com/in/ceylanra-tea-898512404/" target="_blank" class="glass-strong rounded-2xl p-5 text-center contact-icon-card group">
             <i class="bi bi-linkedin text-4xl mb-2 block group-hover:scale-110 transition"></i>
             <h4 class="font-bold text-lg">LinkedIn</h4>
-            <p class="text-white/80 text-sm mt-1">Ceylanra Tea</p>
-            <p class="text-white/60 text-xs mt-2">Connect with us</p>
+            <p class="text-white/90 text-sm">Ceylanra Tea</p>
+            <p class="text-white/60 text-xs">Connect</p>
           </a>
         </div>
 
-        <div class="mt-8 flex flex-wrap items-center justify-center gap-3">
-          <span class="badge-soft px-4 py-2 rounded-full text-sm"><i class="bi bi-whatsapp me-1"></i> WhatsApp 0773565765</span>
-          <span class="badge-soft px-4 py-2 rounded-full text-sm"><i class="bi bi-telephone-fill me-1"></i> Hotline 0773565765</span>
-          <span class="badge-soft px-4 py-2 rounded-full text-sm"><i class="bi bi-facebook me-1"></i> Sunils Tea Center</span>
-          <span class="badge-soft px-4 py-2 rounded-full text-sm"><i class="bi bi-linkedin me-1"></i> LinkedIn /Ceylanra Tea</span>
+        <div class="mt-6 flex flex-wrap justify-center gap-2">
+          <span class="badge-soft px-3 py-1 rounded-full text-xs"><i class="bi bi-whatsapp me-1"></i> 0773565765</span>
+          <span class="badge-soft px-3 py-1 rounded-full text-xs"><i class="bi bi-truck me-1"></i> Free delivery info</span>
+          <span class="badge-soft px-3 py-1 rounded-full text-xs"><i class="bi bi-cup-hot-fill"></i> Pure Ceylon Tea</span>
         </div>
 
-        <div class="text-center text-white/50 text-xs mt-6 border-t border-white/20 pt-5">
-          © 2025 Sunils Tea Center — Fresh Ceylon Tea directly from Eduragala, Ingiriya.
+        <div class="text-center text-white/60 text-xs mt-6 border-t border-white/20 pt-5">
+          © 2025 Sunils Tea Center — Fresh Ceylon Tea from Eduragala, Ingiriya, Sri Lanka.
         </div>
       </div>
     </section>
   </main>
 
   <script>
+    // intersection observer for fade-up animations
     (function() {
-      const items = document.querySelectorAll('.fade-up');
+      const fadeElements = document.querySelectorAll('.fade-up');
       const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
           if (entry.isIntersecting) entry.target.classList.add('show');
         });
-      }, { threshold: 0.12, rootMargin: "0px 0px -20px 0px" });
-      items.forEach(item => observer.observe(item));
+      }, { threshold: 0.1, rootMargin: "0px 0px -10px 0px" });
+      fadeElements.forEach(el => observer.observe(el));
     })();
 
-    function createTeaLeaves() {
-      const container = document.getElementById('leafParticleContainer');
+    // falling tea leaves (ambience)
+    function initLeafParticles() {
+      const container = document.getElementById('leafContainer');
       if (!container) return;
-      const leafSymbols = ['🍃', '🌿', '🍂', '🌱', '🍃', '🌿'];
-      const leafCount = 38;
-      
+      const leaves = ['🍃', '🌿', '🍂', '🌱', '🍃'];
+      const leafCount = 32;
       for (let i = 0; i < leafCount; i++) {
         const leaf = document.createElement('div');
         leaf.className = 'tea-leaf-particle';
-        leaf.innerHTML = leafSymbols[Math.floor(Math.random() * leafSymbols.length)];
-        const size = 16 + Math.random() * 14;
-        leaf.style.fontSize = `${size}px`;
-        leaf.style.left = `${Math.random() * 100}vw`;
+        leaf.innerHTML = leaves[Math.floor(Math.random() * leaves.length)];
+        leaf.style.left = Math.random() * 100 + '%';
+        leaf.style.fontSize = (14 + Math.random() * 14) + 'px';
+        leaf.style.animationDuration = (6 + Math.random() * 9) + 's';
+        leaf.style.animationDelay = (Math.random() * 12) + 's';
         leaf.style.opacity = 0.5 + Math.random() * 0.4;
-        const duration = 7 + Math.random() * 8;
-        leaf.style.animationDuration = `${duration}s`;
-        leaf.style.animationDelay = `${Math.random() * 10}s`;
-        leaf.style.filter = `drop-shadow(0 2px 3px rgba(0,0,0,0.15))`;
         container.appendChild(leaf);
-        
         leaf.addEventListener('animationend', () => {
           leaf.remove();
           const newLeaf = document.createElement('div');
           newLeaf.className = 'tea-leaf-particle';
-          newLeaf.innerHTML = leafSymbols[Math.floor(Math.random() * leafSymbols.length)];
-          newLeaf.style.fontSize = `${14 + Math.random() * 16}px`;
-          newLeaf.style.left = `${Math.random() * 100}vw`;
+          newLeaf.innerHTML = leaves[Math.floor(Math.random() * leaves.length)];
+          newLeaf.style.left = Math.random() * 100 + '%';
+          newLeaf.style.fontSize = (13 + Math.random() * 16) + 'px';
+          newLeaf.style.animationDuration = (6 + Math.random() * 10) + 's';
           newLeaf.style.opacity = 0.5 + Math.random() * 0.5;
-          newLeaf.style.animationDuration = `${6 + Math.random() * 9}s`;
-          newLeaf.style.animationDelay = '0s';
           container.appendChild(newLeaf);
         });
       }
     }
-    
-    window.addEventListener('DOMContentLoaded', () => {
-      createTeaLeaves();
-    });
+    window.addEventListener('DOMContentLoaded', initLeafParticles);
   </script>
 </body>
 </html>
